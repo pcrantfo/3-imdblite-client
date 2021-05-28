@@ -870,23 +870,18 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+var _mainView = require("./components/main-view/main-view");
+var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 var _indexScss = require("./index.scss");
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "my-flix",
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_mainViewDefault.default, {
             __source: {
                 fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/index.jsx",
-                lineNumber: 9
+                lineNumber: 11
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
-            __source: {
-                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/index.jsx",
-                lineNumber: 10
-            },
-            __self: this
-        }, "Good morning")));
+        }));
     }
 }
 const container = document.getElementsByClassName('app-container')[0];
@@ -897,7 +892,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-dom":"2sg1U","./index.scss":"5rtsK","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"3b2NM":[function(require,module,exports) {
+},{"react":"3b2NM","react-dom":"2sg1U","./components/main-view/main-view":"4JHW1","./index.scss":"5rtsK","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"3b2NM":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react.development.js');
 
@@ -21846,7 +21841,136 @@ module.exports = require('./cjs/scheduler-tracing.development.js');
     exports.unstable_wrap = unstable_wrap;
 })();
 
-},{}],"5rtsK":[function() {},{}],"vDQFL":[function(require,module,exports) {
+},{}],"4JHW1":[function(require,module,exports) {
+var helpers = require("../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+class MainView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            movies: [
+                {
+                    _id: 1,
+                    title: 'Inception',
+                    description: 'desc1',
+                    imagePath: '...'
+                },
+                {
+                    _id: 2,
+                    title: 'The Sahwshank Redemption',
+                    description: 'desc2',
+                    imageURL: '...'
+                },
+                {
+                    _id: 3,
+                    title: 'Gladiator',
+                    description: 'desc3',
+                    imagePath: '...'
+                }
+            ],
+            selectedMovie: null
+        };
+    }
+    setSelectedMovie(newSelectedMovie) {
+        this.setState({
+            selectedMovie: newSelectedMovie
+        });
+    }
+    render() {
+        const { movies , selectedMovie  } = this.state;
+        if (movies.length === 0) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "main-view",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
+                lineNumber: 28
+            },
+            __self: this
+        }, "The list is empty!"));
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "main-view",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
+                lineNumber: 31
+            },
+            __self: this
+        }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
+            movie: selectedMovie,
+            onBackClick: (newSelectedMovie)=>{
+                this.setSelectedMovie(newSelectedMovie);
+            },
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
+                lineNumber: 33
+            },
+            __self: this
+        }) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
+                key: movie._id,
+                movieData: movie,
+                onMovieClick: (movie1)=>{
+                    this.setSelectedMovie(movie1);
+                },
+                __source: {
+                    fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
+                    lineNumber: 38
+                },
+                __self: this
+            })
+        )));
+    }
+}
+exports.default = MainView;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"3b2NM","../movie-card/movie-card":"4EK5q","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N","../movie-view/movie-view":"48emw"}],"4EK5q":[function(require,module,exports) {
+var helpers = require("../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class MovieCard extends _reactDefault.default.Component {
+    render() {
+        const { movieData , onMovieClick  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-card",
+            onClick: ()=>{
+                onMovieClick(movieData);
+            },
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 6
+            },
+            __self: this
+        }, movieData.title));
+    }
+}
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"vDQFL":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -21998,6 +22122,96 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"5sUwz"}]},["1j6wU","1JJJ0","46ldn"], "46ldn", "parcelRequire0905")
+},{"react-refresh/runtime":"5sUwz"}],"48emw":[function(require,module,exports) {
+var helpers = require("../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class MovieView extends _reactDefault.default.Component {
+    render() {
+        const { movie , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-view",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 7
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-poster",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 8
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
+            src: movie.imageURL,
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 9
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-title",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 11
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 12
+            },
+            __self: this
+        }, "Title: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 13
+            },
+            __self: this
+        }, movie.title)), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 15
+            },
+            __self: this
+        }, "Description: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 16
+            },
+            __self: this
+        }, movie.description), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            onClick: ()=>{
+                onBackClick(null);
+            },
+            __source: {
+                fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 17
+            },
+            __self: this
+        }, "Back")));
+    }
+}
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"5rtsK":[function() {},{}]},["1j6wU","1JJJ0","46ldn"], "46ldn", "parcelRequire0905")
 
 //# sourceMappingURL=index.67388cb8.js.map
