@@ -21855,6 +21855,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _loginView = require("../login-view/login-view");
+var _registrationView = require("../registration-view/registration-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
@@ -21883,7 +21884,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
-                lineNumber: 33
+                lineNumber: 34
             },
             __self: this
         }));
@@ -21891,7 +21892,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
-                lineNumber: 35
+                lineNumber: 36
             },
             __self: this
         }));
@@ -21899,7 +21900,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
-                lineNumber: 38
+                lineNumber: 39
             },
             __self: this
         }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
@@ -21909,7 +21910,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
-                lineNumber: 40
+                lineNumber: 41
             },
             __self: this
         }) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
@@ -21920,7 +21921,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 45
+                    lineNumber: 46
                 },
                 __self: this
             })
@@ -21943,7 +21944,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","axios":"7rA65","../movie-card/movie-card":"4EK5q","../movie-view/movie-view":"48emw","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N","../login-view/login-view":"4I1BQ"}],"7rA65":[function(require,module,exports) {
+},{"react":"3b2NM","axios":"7rA65","../movie-card/movie-card":"4EK5q","../movie-view/movie-view":"48emw","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N","../login-view/login-view":"4I1BQ","../registration-view/registration-view":"5EClo"}],"7rA65":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"4qfhW"}],"4qfhW":[function(require,module,exports) {
@@ -24298,6 +24299,8 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 );
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -24308,16 +24311,29 @@ function LoginView(props) {
         console.log(username, password);
         props.onLoggedIn(username);
     };
-    return(/*#__PURE__*/ _reactDefault.default.createElement("form", {
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "login-view",
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 14
+            lineNumber: 15
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
+            lineNumber: 16
+        },
+        __self: this
+    }, "Login"), /*#__PURE__*/ _reactDefault.default.createElement("form", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
+            lineNumber: 17
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 15
+            lineNumber: 18
         },
         __self: this
     }, "Username:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
@@ -24327,13 +24343,13 @@ function LoginView(props) {
         ,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 17
+            lineNumber: 20
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 24
+            lineNumber: 27
         },
         __self: this
     }, "Password:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
@@ -24343,7 +24359,7 @@ function LoginView(props) {
         ,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 26
+            lineNumber: 29
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement("button", {
@@ -24351,13 +24367,18 @@ function LoginView(props) {
         onClick: handleSubmit,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 33
+            lineNumber: 36
         },
         __self: this
-    }, "Submit")));
+    }, "Submit"))));
 }
 _s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
 _c = LoginView;
+LoginView.propTypes = {
+    username: _propTypesDefault.default.string.isRequired,
+    password: _propTypesDefault.default.string.isRequired,
+    onLoggedIn: _propTypesDefault.default.func.isRequired
+};
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -24366,6 +24387,143 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"5rtsK":[function() {},{}]},["1j6wU","1JJJ0","46ldn"], "46ldn", "parcelRequire0905")
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N","prop-types":"4dfy5"}],"5EClo":[function(require,module,exports) {
+var helpers = require("../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _s = $RefreshSig$();
+function RegistrationView(props) {
+    _s();
+    const [name, setName] = _react.useState('');
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(username, password);
+        props.onLoggedIn(username);
+    };
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "registration-view",
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 17
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 18
+        },
+        __self: this
+    }, "Register"), /*#__PURE__*/ _reactDefault.default.createElement("form", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 19
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 20
+        },
+        __self: this
+    }, "Name:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        value: name,
+        onChange: (e)=>setName(e.target.value)
+        ,
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 22
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 29
+        },
+        __self: this
+    }, "Username:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        value: username,
+        onChange: (e)=>setUsername(e.target.value)
+        ,
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 31
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 38
+        },
+        __self: this
+    }, "Password:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "password",
+        value: password,
+        onChange: (e)=>setPassword(e.target.value)
+        ,
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 40
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    }, "email:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        value: email,
+        onChange: (e)=>setEmail(e.target.value)
+        ,
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 49
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "submit",
+        onClick: handleSubmit,
+        __source: {
+            fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    }, "Submit"))));
+}
+_s(RegistrationView, "zKZ8JXI8GYclgvJ8pqQiGuqt4tA=");
+_c = RegistrationView;
+RegistrationView.propTypes = {
+    name: _propTypesDefault.default.string.isRequired,
+    username: _propTypesDefault.default.string.isRequired,
+    password: _propTypesDefault.default.string.isRequired,
+    email: _propTypesDefault.default.string.isRequired,
+    onLoggedIn: _propTypesDefault.default.func.isRequired
+};
+var _c;
+$RefreshReg$(_c, "RegistrationView");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N","prop-types":"4dfy5"}],"5rtsK":[function() {},{}]},["1j6wU","1JJJ0","46ldn"], "46ldn", "parcelRequire0905")
 
 //# sourceMappingURL=index.67388cb8.js.map
