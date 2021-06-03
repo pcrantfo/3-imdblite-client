@@ -16,7 +16,7 @@ MovieCard.propTypes = {
     movieData: PropTypes.shape({
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        imageURL: PropTypes.string.isRequired
+        imgURL: PropTypes.string.isRequired
     }).isRequired,
     onMovieClick: PropTypes.func.isRequired
 };

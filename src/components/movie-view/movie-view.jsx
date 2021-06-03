@@ -8,7 +8,7 @@ export class MovieView extends React.Component {
         return (
             <div className="movie-view">
                 <div className="movie-poster">
-                    <img src={movie.imageURL} />
+                    <img src={movie.imgURL} />
                 </div>
                 <div className="movie-title">
                     <span className="label">Title: </span>
@@ -28,7 +28,7 @@ MovieView.propTypes = {
     movie: PropTypes.shape({
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        imageURL: PropTypes.string.isRequired
+        imgURL: PropTypes.string.isRequired
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
 };

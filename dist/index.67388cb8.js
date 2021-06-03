@@ -24402,7 +24402,7 @@ MovieCard.propTypes = {
     movieData: _propTypesDefault.default.shape({
         title: _propTypesDefault.default.string.isRequired,
         description: _propTypesDefault.default.string.isRequired,
-        imageURL: _propTypesDefault.default.string.isRequired
+        imgURL: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
@@ -24445,7 +24445,7 @@ class MovieView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
-            src: movie.imageURL,
+            src: movie.imgURL,
             __source: {
                 fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 11
@@ -24502,7 +24502,7 @@ MovieView.propTypes = {
     movie: _propTypesDefault.default.shape({
         title: _propTypesDefault.default.string.isRequired,
         description: _propTypesDefault.default.string.isRequired,
-        imageURL: _propTypesDefault.default.string.isRequired
+        imgURL: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onBackClick: _propTypesDefault.default.func.isRequired
 };
