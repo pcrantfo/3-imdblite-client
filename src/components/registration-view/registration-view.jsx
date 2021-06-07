@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export function RegistrationView(props) {
     const [ name, setName ] = useState('');
@@ -14,53 +18,54 @@ export function RegistrationView(props) {
     }
 
     return (
-        <div className="registration-view">
-            <h1>Register</h1>
-            <form>
-                <label>
-                    Name: 
-                    <input 
-                        type="text"
-                        value={name}
-                        onChange = {e =>
-                            setName(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Username: 
-                    <input 
-                        type="text" 
-                        value={username} 
-                        onChange={e =>
-                            setUsername(e.target.value)} 
-                    />
-                </label>
-                <label>
-                    Password:
-                    <input 
-                        type="password" 
-                        value={password} 
-                        onChange = {e =>
-                            setPassword(e.target.value)} 
-                    />
-                </label>
-                <label>
-                    email: 
-                    <input
-                        type="text"
-                        value={email}
-                        onChange = {e => 
-                            setEmail(e.target.value)}
-                    />
-                </label>
-                <button 
-                    type="submit" 
-                    onClick={handleSubmit}
-                >
-                    Submit
-                </button>
-            </form>
-        </div>
+        <Row className="registration-view justify-content-md-center">
+            <Col md={8}>
+            <Row className="justify-content-center">
+                <h1>Register</h1>
+            </Row>
+                <Form>
+                    <Form.Group controlId="formName">
+                    <Form.Label>Name: </Form.Label>
+                        <Form.Control 
+                            type="text"
+                            onChange = { e => 
+                                setName(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formUsername">
+                        <Form.Label>Username:</Form.Label>
+                        <Form.Control 
+                            type="Text"
+                            onChange = { e => 
+                                setUsername(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formPassword">
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control 
+                            type="password"
+                            onChange = { e => 
+                                setPassword(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formEmail">
+                        <Form.Label>Email: </Form.Label>
+                        <Form.Control 
+                            type="text"
+                            onChange = { e => 
+                                setEmail(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button 
+                        variant="primary"
+                        type="submit"
+                        onClick={ handleSubmit }
+                    >
+                        Submit
+                    </Button>
+                </Form>
+            </Col>
+        </Row>
     )
 }
 
