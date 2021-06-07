@@ -1,25 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Media from 'react-bootstrap/Media';
+import Button from 'react-bootstrap/Button';
+
 export class MovieView extends React.Component {
 
     render() {
         const { movie, onBackClick } = this.props;
         return (
-            <div className="movie-view">
-                <div className="movie-poster">
-                    <img src={movie.imgURL} />
-                </div>
-                <div className="movie-title">
-                    <span className="label">Title: </span>
-                    <span className="value">{movie.title}</span>
-                </div>
-                <span className="label">Description: </span>
-                <span className="value">{movie.description}</span>
-                <button onClick={() => {
-                    onBackClick(null);
-                }}>Back</button>
-            </div>
+            <Media className="movie-view">
+                <img 
+                    width="50%"
+                    height="auto"
+                    className="align-self-center mr-3"
+                    src={movie.imgURL} />
+                <Media.Body>
+                    <h2>{movie.title}</h2>
+                    <div className="movie-body">
+                        <span className="label">
+                            <strong>Description: </strong>
+                        </span>
+                        <span className="value">{movie.description}</span>
+                    </div>
+                    <br></br>
+                    <Button
+                        variant="primary"
+                        type="submit"
+                        onClick={() => {
+                            onBackClick(null);
+                        }}>Back</Button>
+                </Media.Body>
+            </Media>
         );
     }
 }
