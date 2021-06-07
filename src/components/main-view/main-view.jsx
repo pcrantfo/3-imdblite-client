@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -11,47 +14,8 @@ export default class MainView extends React.Component {
         super();
         this.state = {
             movies: [],
-            selectedMovie: null,
-            user: null
+            selectedMovie: null
         };
-    }
-
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
-
-    onLoggedIn(user) {
-        this.setState({
-            user
-        });
-    }
-    
-    render() {
-        const { movies, selectedMovie, user } = this.state;
-
-        if (!user) return <LoginView onLoggedIn = {user => this.onLoggedIn(user)} />
-
-        if (movies.length === 0) return <div className="main-view" />;
-
-        return (
-            <div className="main-view">
-                {selectedMovie
-                    ? <MovieView movie = {selectedMovie}
-                    onBackClick = {newSelectedMovie => {
-                        this.setSelectedMovie(newSelectedMovie);
-                    }}/>
-                    : movies.map(movie => (
-                        <MovieCard key = {movie._id} 
-                        movieData = {movie}
-                        onMovieClick = {(newSelectedMovie) => {
-                            this.setSelectedMovie(newSelectedMovie)
-                        }}/>
-                    ))
-                }
-            </div>
-        );
     }
 
     componentDidMount() {
@@ -64,5 +28,43 @@ export default class MainView extends React.Component {
             .catch(error => {
                 console.error(error);
             });
+    }
+
+    setSelectedMovie(newSelectedMovie) {
+        this.setState({
+            selectedMovie: newSelectedMovie
+        });
+    }
+    
+    render() {
+        const { movies, selectedMovie } = this.state;
+
+        if (movies.length === 0) return <div className="main-view" />;
+
+        return (
+            <Row className="main-view justify-content-md-center">
+                {selectedMovie
+                    ? (
+                        <Col md={8}>
+                            <MovieView movie = {selectedMovie} 
+                                onBackClick = {newSelectedMovie => {
+                                    this.setSelectedMovie(newSelectedMovie);
+                            }}/>
+                        </Col>
+                    )
+                    : (
+                        movies.map(movie => (
+                            <Col md={3}>
+                                <MovieCard key = {movie._id} 
+                                    movieData = {movie}
+                                    onMovieClick = {(newSelectedMovie) => {
+                                        this.setSelectedMovie(newSelectedMovie)
+                                }}/>
+                            </Col>
+                        ))
+                    )
+                }
+            </Row>
+        );
     }
 }
