@@ -1,4 +1,12 @@
-.my-flix {
-  color: steelblue;
+html,
+body,
+.app-container {
+  background-color: #121212;
+  color: #f2f2f2;
+}
+
+.card {
+  background-color: #373534;
+  margin-top: 15px;
 }
 /*# sourceMappingURL=index.ba1c70dd.css.map */
