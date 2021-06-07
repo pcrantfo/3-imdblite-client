@@ -52,9 +52,12 @@ export default class MainView extends React.Component {
 
         return (
             <Row className="main-view justify-content-md-center">
+                <Col className="justify-content-md-center" md={12}>
+                    <h1>Movies</h1>
+                </Col>
                 {selectedMovie
                     ? (
-                        <Col md={8}>
+                        <Col md={10}>
                             <MovieView movie = {selectedMovie} 
                                 onBackClick = {newSelectedMovie => {
                                     this.setSelectedMovie(newSelectedMovie);
