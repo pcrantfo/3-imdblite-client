@@ -1,5 +1,17 @@
-$color: steelblue;
+$bg-color: #121212;
+$bg-color-lighten: #373534;
+$primary-color: #f79121;
+$secondary-color: #a6dbd8;
+$font-color: #f2f2f2;
 
-.my-flix {
-  color: $color;
+html,
+body,
+.app-container {
+  background-color: $bg-color;
+  color: $font-color;
+}
+
+.card {
+  background-color: $bg-color-lighten;
+  margin-top: 15px;
 }
