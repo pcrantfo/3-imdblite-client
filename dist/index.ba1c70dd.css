@@ -9,4 +9,39 @@ body,
   background-color: #373534;
   margin-top: 15px;
 }
+
+.btn-link {
+  color: #5dbeb8;
+}
+
+.btn-primary {
+  background-color: #5dbeb8;
+  border-color: #5dbeb8;
+}
+
+.btn-primary:hover {
+  background-color: #43a5a0;
+  border-color: #43a5a0;
+}
+
+.btn-link:hover {
+  color: #43a5a0;
+}
+
+#movie-header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f2f2f2;
+  color: #f79121;
+}
+
+.button-row {
+  padding: 0 1.25rem;
+  justify-content: space-between;
+}
+
+.fa-heart {
+  width: 15px;
+  height: auto;
+}
 /*# sourceMappingURL=index.ba1c70dd.css.map */
