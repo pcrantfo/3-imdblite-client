@@ -17,10 +17,10 @@ export function LoginView(props) {
 
     return (
         <Row className="login-view justify-content-md-center">
+            <Col className="justify-content-center" md={8}>
+                <h1 id="login-header">Login</h1>
+            </Col>
             <Col md={8}>
-            <Row className="justify-content-center">
-                <h1>Login</h1>
-            </Row>
                 <Form>
                     <Form.Group controlId="formUsername">
                         <Form.Label>Username:</Form.Label>
