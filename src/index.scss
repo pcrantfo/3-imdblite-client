@@ -1,7 +1,7 @@
 $bg-color: #121212;
 $bg-color-lighten: #373534;
 $primary-color: #f79121;
-$secondary-color: #a6dbd8;
+$secondary-color: darken(#a6dbd8, 20%);
 $font-color: #f2f2f2;
 
 html,
@@ -14,4 +14,39 @@ body,
 .card {
   background-color: $bg-color-lighten;
   margin-top: 15px;
+}
+
+.btn-link {
+  color: $secondary-color;
+}
+
+.btn-primary {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+}
+
+.btn-primary:hover {
+  background-color: darken($secondary-color, 10%);
+  border-color: darken($secondary-color, 10%);
+}
+
+.btn-link:hover {
+  color: darken($secondary-color, 10%);
+}
+
+#movie-header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid $font-color;
+  color: $primary-color;
+}
+
+.button-row {
+  padding: 0 1.25rem;
+  justify-content: space-between;
+}
+
+.fa-heart {
+  width: 15px;
+  height: auto;
 }
