@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
 
 export class MovieCard extends React.Component {
     render() {
@@ -17,13 +18,17 @@ export class MovieCard extends React.Component {
                 />
                 <Card.Body>
                     <Card.Title>{ movieData.title }</Card.Title>
-                    <Card.Text>{ movieData.description }</Card.Text>
-                    <Button 
-                        onClick = {() => 
-                            onMovieClick(movieData)}
-                        variant="link"
-                    >Open
-                    </Button>
+                    <Row className="button-row">
+                        <Button 
+                            onClick = {() => 
+                                onMovieClick(movieData)}
+                            variant="link"
+                        >Open
+                        </Button>
+                        <Button variant="link">
+                            <i className="far fa-heart"></i>
+                        </Button>
+                    </Row>
                 </Card.Body>
             </Card>
         );
