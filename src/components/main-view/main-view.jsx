@@ -52,8 +52,8 @@ export default class MainView extends React.Component {
 
         return (
             <Row className="main-view justify-content-md-center">
-                <Col className="justify-content-md-center" md={12}>
-                    <h1>Movies</h1>
+                <Col className="justify-content-center" md={12}>
+                    <h1 id="movie-header">Movies</h1>
                 </Col>
                 {selectedMovie
                     ? (
@@ -66,7 +66,7 @@ export default class MainView extends React.Component {
                     )
                     : (
                         movies.map(movie => (
-                            <Col md={3}>
+                            <Col md={4}>
                                 <MovieCard key = {movie._id} 
                                     movieData = {movie}
                                     onMovieClick = {(newSelectedMovie) => {
