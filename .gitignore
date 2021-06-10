@@ -2,9 +2,3 @@ node_modules
 .parcel-cache
 src/components/.DS_Store
 color-scheme.ai
-dist
-dist/index.67388cb8.js
-dist/index.67388cb8.js.map
-dist/index.ba1c70dd.css
-dist/index.ba1c70dd.css.map
-dist/index.html

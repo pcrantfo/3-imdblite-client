@@ -23658,26 +23658,28 @@ function LoginView(props) {
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+        className: "justify-content-center",
         md: 8,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
             lineNumber: 20
         },
         __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
-        className: "justify-content-center",
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        id: "login-header",
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
             lineNumber: 21
         },
         __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+    }, "Login")), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+        md: 8,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 22
+            lineNumber: 23
         },
         __self: this
-    }, "Login")), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
             lineNumber: 24
