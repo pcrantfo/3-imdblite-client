@@ -5,15 +5,26 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+import axios from 'axios';
+
 export function LoginView(props) {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
-        props.onLoggedIn(username);
-    }
+        axios.post('https://imdblite.herokuapp.com/login', {
+            username: username,
+            password: password
+        })
+        .then(response => {
+            const data = response.data;
+            props.onLoggedIn(data);
+        })
+        .catch(e => {
+            alert(`No such user, ${username}, or password, ${password}, exist.`);
+        });
+    };
 
     return (
         <Row className="login-view justify-content-md-center">
@@ -25,7 +36,9 @@ export function LoginView(props) {
                     <Form.Group controlId="formUsername">
                         <Form.Label>Username:</Form.Label>
                         <Form.Control 
-                            type="Text"
+                            type = "Text"
+                            placeholder = "Enter username"
+                            value = {username}
                             onChange = { e => 
                                 setUsername(e.target.value)}
                         />
@@ -34,6 +47,8 @@ export function LoginView(props) {
                         <Form.Label>Password:</Form.Label>
                         <Form.Control 
                             type="password"
+                            placeholder="Enter password"
+                            value = {password}
                             onChange = { e => 
                                 setPassword(e.target.value)}
                         />

@@ -19,6 +19,12 @@ export default class MainView extends React.Component {
         };
     }
 
+    onLoggedIn(user) {
+        this.setState({
+            user
+        });
+    }
+
     componentDidMount() {
         axios.get('https://imdblite.herokuapp.com/movies')
             .then(response => {
@@ -37,12 +43,6 @@ export default class MainView extends React.Component {
         });
     }
 
-    onLoggedIn(user) {
-        this.setState({
-            user
-        });
-    }
-    
     render() {
         const { movies, selectedMovie, user } = this.state;
 

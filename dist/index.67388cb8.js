@@ -21879,6 +21879,11 @@ class MainView extends _reactDefault.default.Component {
             user: null
         };
     }
+    onLoggedIn(user) {
+        this.setState({
+            user
+        });
+    }
     componentDidMount() {
         _axiosDefault.default.get('https://imdblite.herokuapp.com/movies').then((response)=>{
             this.setState({
@@ -21891,11 +21896,6 @@ class MainView extends _reactDefault.default.Component {
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
-        });
-    }
-    onLoggedIn(user) {
-        this.setState({
-            user
         });
     }
     render() {
@@ -23640,6 +23640,8 @@ var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -23647,14 +23649,21 @@ function LoginView(props) {
     const [password, setPassword] = _react.useState('');
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        props.onLoggedIn(username);
+        _axiosDefault.default.post('https://imdblite.herokuapp.com/login', {
+            username: username,
+            password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            alert(`No such user, ${username}, or password, ${password}, exist.`);
+        });
     };
     return(/*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
         className: "login-view justify-content-md-center",
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 19
+            lineNumber: 30
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -23662,71 +23671,75 @@ function LoginView(props) {
         md: 8,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 20
+            lineNumber: 31
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
         id: "login-header",
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 21
+            lineNumber: 32
         },
         __self: this
     }, "Login")), /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
         md: 8,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 23
+            lineNumber: 34
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 24
+            lineNumber: 35
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formUsername",
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 25
+            lineNumber: 36
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 26
+            lineNumber: 37
         },
         __self: this
     }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
         type: "Text",
+        placeholder: "Enter username",
+        value: username,
         onChange: (e)=>setUsername(e.target.value)
         ,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 27
+            lineNumber: 38
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formPassword",
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 33
+            lineNumber: 46
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 34
+            lineNumber: 47
         },
         __self: this
     }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
         type: "password",
+        placeholder: "Enter password",
+        value: password,
         onChange: (e)=>setPassword(e.target.value)
         ,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 35
+            lineNumber: 48
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -23735,7 +23748,7 @@ function LoginView(props) {
         onClick: handleSubmit,
         __source: {
             fileName: "/Volumes/peyton-HD/CareerFoundry/web-development/2-full-stack-immersion/3-imdblite-client/src/components/login-view/login-view.jsx",
-            lineNumber: 41
+            lineNumber: 56
         },
         __self: this
     }, "Submit")))));
@@ -23750,7 +23763,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"6A5ko":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","axios":"7rA65","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"6A5ko":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -26074,7 +26087,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N","react-bootstrap/Row":"3fzwD"}],"1CZWQ":[function(require,module,exports) {
+},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-bootstrap/Row":"3fzwD","@parcel/transformer-js/src/esmodule-helpers.js":"vDQFL","../../../../../../../../../Users/peytoncrantford/.nvm/versions/node/v14.16.0/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Sm5N"}],"1CZWQ":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
