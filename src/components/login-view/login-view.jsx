@@ -32,7 +32,7 @@ export function LoginView(props) {
                 <h1 id="login-header">Login</h1>
             </Col>
             <Col md={8}>
-                <Form>
+                <Form> 
                     <Form.Group controlId="formUsername">
                         <Form.Label>Username:</Form.Label>
                         <Form.Control 
